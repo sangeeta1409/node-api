@@ -19,6 +19,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       defaultValue: null,
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: null,
+    },
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,

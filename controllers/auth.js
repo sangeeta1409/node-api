@@ -18,6 +18,7 @@ const registerUser = async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = await User.create({
       email: req.body.email,
+      name: req.body.name,
       password: hashedPassword,
     });
 
@@ -31,6 +32,7 @@ const registerUser = async (req, res) => {
       {
         userId: user.id,
         email: user.email,
+        name: user.name,
         role: user.role,
       },
       jwtSecret,
@@ -41,6 +43,7 @@ const registerUser = async (req, res) => {
       user: {
         id: user.id,
         email: user.email,
+        name: user.name,
       },
       token,
     });
@@ -75,6 +78,7 @@ const loginUser = async (req, res) => {
         userId: user.id,
         email: user.email,
         role: user.role,
+        name: user.name,
       },
       jwtSecret,
       { expiresIn: '1h' }

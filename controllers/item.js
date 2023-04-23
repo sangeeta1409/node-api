@@ -19,6 +19,8 @@ const createItem = async (req, res) => {
     const item = await Item.create({
       name: req.body.name,
       price: req.body.price,
+      image: req.body.image,
+
     });
     res.status(201).json(item);
   } catch (err) {
@@ -33,6 +35,7 @@ const updateItem = async (req, res) => {
       {
         name: req.body.name,
         price: req.body.price,
+        image: req.body.image,
       },
       {
         where: { id: req.params.id },
